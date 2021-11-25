@@ -41,8 +41,9 @@ namespace Psim.IOManagers
             {
                 System.Console.WriteLine(cells);
                 System.Console.WriteLine($"Successfully added a ${length}x{width} to the model. The cell is linked to {sensorid}");
+                System.Console.WriteLine(m);
             }
-            System.Console.WriteLine(m);
+            
         }
 
         private static void AddSensors(Model m, JToken sensorData)
@@ -54,6 +55,7 @@ namespace Psim.IOManagers
             {
                 System.Console.WriteLine(sensors);
                 System.Console.WriteLine($"Successfully added sensor ${id} to the model. The sensor's initial temperature is {tinit}");
+                System.Console.WriteLine(m);
             }
 
             
@@ -61,7 +63,7 @@ namespace Psim.IOManagers
 
         private static Model GetModel(Material material, JToken settingsData)
         {
-           
+            
             var highTemp = (double)settingsData["high_temp"];
             var lowTemp = (double)settingsData["low_temp"];
             var simTime = (double)settingsData["sim_time"];
