@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "GbAlBmX207y2JYwr8v4JZPv1/wmvvlSqHbcy4gwcZwXUt8ghyw7b4CeNPWYAnJgFAxv3bw74sG4BVmNSqfgqWw==",
+  "dgSpecHash": "gN9eJe9AexZ3m8S8DB29p/tAxks0kfLmGY+Ba8yBasO7j8zXNTHhgCTL3nBMCqrEQfuIcNUpsBSoEy8HE4zo6w==",
   "success": true,
   "projectFilePath": "D:\\CAMBRIAN\\COMPUTER PRORAMMING-INTERNET OF THINGS\\SEMESTER 3\\OBJECT ORIENTED PROGRAMMING 2\\Repositories\\Lab7_OOP2\\Lab-7\\Lab-7.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\drumi\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
