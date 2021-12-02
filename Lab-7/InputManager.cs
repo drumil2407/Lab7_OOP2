@@ -33,43 +33,44 @@ namespace Psim.IOManagers
 
         private static void AddCells(Model m, JToken cellData)
         {
-            
-            var length = (double)cellData["length"];
-            var width = (double)cellData["width"];
-            var sensorid = (int)cellData["sensorID"];
-            foreach (double cells in cellData)
+
+            IList<JToken> cellTokens = cellData.Children().ToList();
+            foreach (var token in cellTokens)
             {
-                System.Console.WriteLine(cells);
-                System.Console.WriteLine($"Successfully added a ${length}x{width} to the model. The cell is linked to {sensorid}");
-                System.Console.WriteLine(m);
+                var length = (double)token["length"];
+                var width = (double)token["width"];
+                var id = (int)token["sensorID"];
+                m.AddCell(length, width, id);
+                System.Console.WriteLine($"Successfully added a {length} x {width} cell to the model. The cell is linked to sensor {id}");
             }
-            
+
         }
 
         private static void AddSensors(Model m, JToken sensorData)
         {
-            
-            var id = (int)sensorData["id"];
-            var tinit = (int)sensorData["t_init"];
-            foreach (int sensors in sensorData)
+
+            IList<JToken> sensorsTokens = sensorData.Children().ToList();
+            foreach (var token in sensorsTokens)
             {
-                System.Console.WriteLine(sensors);
-                System.Console.WriteLine($"Successfully added sensor ${id} to the model. The sensor's initial temperature is {tinit}");
-                System.Console.WriteLine(m);
+                var id = (int)token["id"];
+                var temp = (double)token["t_init"];
+                m.AddSensor(id, temp);
+                System.Console.WriteLine($"Successfully added sensor {id} to the model. The sensor's initial temperature is {temp}.");
             }
 
-            
+
         }
 
         private static Model GetModel(Material material, JToken settingsData)
         {
-            
+
             var highTemp = (double)settingsData["high_temp"];
             var lowTemp = (double)settingsData["low_temp"];
             var simTime = (double)settingsData["sim_time"];
-            return new Model(material,highTemp,lowTemp,simTime);
-           
-            
+            System.Console.WriteLine($"Successfully created a model {highTemp} {lowTemp} {simTime}.");
+            return new Model(material, highTemp, lowTemp, simTime);
+
+
         }
 
         private static Material GetMaterial(JToken materialData)
